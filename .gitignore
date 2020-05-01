@@ -1,10 +1,12 @@
 .settings/*
 .gradle/*
+.gradle
 gradle/*
 gradlew
 gradlew.bat
 build/*
 out/*
+.idea
 .idea/*
 .DS_Store
 *.iml
@@ -14,3 +16,4 @@ bin/*
 /.gradle/
 /build/
 .classpath
+.gitignore

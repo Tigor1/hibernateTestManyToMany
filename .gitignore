@@ -17,3 +17,4 @@ bin/*
 /build/
 .classpath
 .gitignore
+.lock

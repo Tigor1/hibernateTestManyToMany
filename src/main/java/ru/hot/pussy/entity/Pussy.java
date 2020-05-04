@@ -1,17 +1,20 @@
 package ru.hot.pussy.entity;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
 /**
- *  id serial PRIMARY KEY,
- *     name VARCHAR (50) NOT NULL,
- *     deep INT
+ * id serial PRIMARY KEY,
+ * name VARCHAR (50) NOT NULL,
+ * deep INT
  */
 @Entity
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
+@EqualsAndHashCode
 public class Pussy {
 
     @Id
@@ -27,10 +30,16 @@ public class Pussy {
     @Column(nullable = false)
     private int deep;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "DICK_PUSSY",
-            joinColumns = @JoinColumn(name = "pussy_id"),
-            inverseJoinColumns = @JoinColumn(name = "dick_id"))
-    private Set<Dick> dicks;
+    @Override
+    public String toString() {
+        return "[Egor (id = 1, name = Egor)]";
+    }
+
+
+    //    @ManyToMany(fetch = FetchType.LAZY)
+//    @JoinTable(
+//            name = "DICK_PUSSY",
+//            joinColumns = @JoinColumn(name = "pussy_id"),
+//            inverseJoinColumns = @JoinColumn(name = "dick_id"))
+//    private Set<Dick> dicks;
 }

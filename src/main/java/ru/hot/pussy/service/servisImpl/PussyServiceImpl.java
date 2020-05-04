@@ -7,7 +7,6 @@ import ru.hot.pussy.entity.Pussy;
 import ru.hot.pussy.repository.PussyRepository;
 import ru.hot.pussy.service.PussyService;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -23,7 +22,6 @@ public class PussyServiceImpl implements PussyService {
     @Override
     public List<Pussy> getAll() {
         List<Pussy> pussies = repository.findAll();
-        System.out.println(pussies);
         return pussies;
     }
 }

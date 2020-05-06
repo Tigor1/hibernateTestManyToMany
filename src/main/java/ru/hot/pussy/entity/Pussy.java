@@ -1,6 +1,7 @@
 package ru.hot.pussy.entity;
 
 import lombok.*;
+import ru.hot.pussy.DTO.DickDTO;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -10,11 +11,8 @@ import java.util.Set;
  * name VARCHAR (50) NOT NULL,
  * deep INT
  */
+@Data
 @Entity
-@Getter
-@Setter
-@RequiredArgsConstructor
-@EqualsAndHashCode
 public class Pussy {
 
     @Id
@@ -30,16 +28,13 @@ public class Pussy {
     @Column(nullable = false)
     private int deep;
 
-    @Override
-    public String toString() {
-        return "[Egor (id = 1, name = Egor)]";
-    }
+
+    @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "DICK_PUSSY",
+            joinColumns = @JoinColumn(name = "pussy_id"),
+            inverseJoinColumns = @JoinColumn(name = "dick_id"))
+    private Set<Dick> dicks;
 
 
-    //    @ManyToMany(fetch = FetchType.LAZY)
-//    @JoinTable(
-//            name = "DICK_PUSSY",
-//            joinColumns = @JoinColumn(name = "pussy_id"),
-//            inverseJoinColumns = @JoinColumn(name = "dick_id"))
-//    private Set<Dick> dicks;
 }

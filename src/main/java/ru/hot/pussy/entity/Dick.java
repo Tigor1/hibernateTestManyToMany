@@ -13,8 +13,8 @@ import java.util.Set;
  *     length INT
  * );
  */
-@Entity
 @Data
+@Entity
 public class Dick {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,7 +32,7 @@ public class Dick {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "DICK_PUSSY",
-            joinColumns = @JoinColumn(name = "pussy_id"),
-            inverseJoinColumns = @JoinColumn(name = "dick_id"))
-    private Set<Dick> pussies;
+            joinColumns = @JoinColumn(name = "dick_id"),
+            inverseJoinColumns = @JoinColumn(name = "pussy_id"))
+    private Set<Pussy> pussies;
 }

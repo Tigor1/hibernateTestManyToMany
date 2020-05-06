@@ -1,8 +1,5 @@
 package ru.hot.pussy.entity;
 
-import lombok.*;
-import ru.hot.pussy.DTO.DickDTO;
-
 import javax.persistence.*;
 import java.util.Set;
 
@@ -11,7 +8,6 @@ import java.util.Set;
  * name VARCHAR (50) NOT NULL,
  * deep INT
  */
-@Data
 @Entity
 public class Pussy {
 
@@ -36,5 +32,47 @@ public class Pussy {
             inverseJoinColumns = @JoinColumn(name = "dick_id"))
     private Set<Dick> dicks;
 
+    public Pussy() {
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getOwnerName() {
+        return this.ownerName;
+    }
+
+    public int getDeep() {
+        return this.deep;
+    }
+
+    public Set<Dick> getDicks() {
+        return this.dicks;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+
+    public void setDeep(int deep) {
+        this.deep = deep;
+    }
+
+    public void setDicks(Set<Dick> dicks) {
+        this.dicks = dicks;
+    }
 
 }
